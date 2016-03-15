@@ -1,0 +1,19 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha --test/ -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jamie7893/blog.git"
+  },
+  "author": "jamie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamie7893/blog/issues"
+  },
+  "homepage": "https://github.com/jamie7893/blog#readme"
+}
