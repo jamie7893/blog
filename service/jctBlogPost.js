@@ -9,14 +9,14 @@ module.exports = function (sequelize) {
                 idPost: req.body.idPost
             };
             JctBlogPost.create(newBlogPost).then(function () {
-                res.send(200);
+                res.sendStatus(200);
             });
         },
         deleteID: function(req, res) {
             JctBlogPost.destroy({
                 where: {
                     idBlog: req.params.idblog, //this will be your id that you want to delete
-                    idPost: req.oarams.idpost
+                    idPost: req.params.idpost
                 }
             }).then(function() {
                 res.json('Deleted successfully');
@@ -24,10 +24,16 @@ module.exports = function (sequelize) {
                 console.log(err);
             });
         },
+        get: function(req, res) {
+    			JctBlogPost.findAll().then(function(prodcolors) {
+    				res.json(prodcolors);
+    			});
+        },
         updateID: function(req, res) {
             JctBlogPost.update(req.body, {
                     where: {
-                        idBlog: req.params.idblog
+                        idBlog: req.params.idblog,
+                        idPost: req.params.idpost
                     }
                 })
                 .then(function(result) {

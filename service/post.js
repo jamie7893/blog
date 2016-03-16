@@ -11,7 +11,7 @@ module.exports = function (sequelize) {
                 body: req.body.body
             };
             Post.create(newPost).then(function () {
-                res.send(200);
+                res.sendStatus(200);
             });
         },
         get: function (req, res) {

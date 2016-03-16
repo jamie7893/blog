@@ -10,7 +10,7 @@ module.exports = function (sequelize) {
                 title: req.body.title
             };
             Blog.create(newBlog).then(function () {
-                res.send(200);
+                res.sendStatus(200);
             });
         },
         get: function (req, res) {
@@ -30,7 +30,7 @@ module.exports = function (sequelize) {
                 }
             }).then(Blog.destroy({
                 where: {
-                    id: req.params.id //this will be your id that you want to delete
+                    idUser: req.params.id //this will be your id that you want to delete
                 }
             }).then(function() {
                 res.json('Deleted successfully');

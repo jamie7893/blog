@@ -10,7 +10,7 @@ module.exports = function (sequelize) {
                 cell: req.body.cell
             };
             UserInfo.create(newUserInfo).then(function () {
-                res.send(200);
+                res.sendStatus(200);
             });
         },
         get: function (req, res) {
@@ -18,10 +18,21 @@ module.exports = function (sequelize) {
                 res.json(userInfos);
             });
         },
+        deleteID: function(req, res) {
+            UserInfo.destroy({
+                where: {
+                    idUser: req.params.id //this will be your id that you want to delete
+                }
+            }).then(function() {
+                res.json('Deleted successfully');
+            }, function(err) {
+                console.log(err);
+            });
+          },
         updateID: function(req, res) {
             UserInfo.update(req.body, {
                     where: {
-                        id: req.params.id
+                        idUser: req.params.id
                     }
                 })
                 .then(function(result) {

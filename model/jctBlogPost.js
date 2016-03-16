@@ -5,17 +5,17 @@ module.exports = function(sequelize, DataTypes) {
     idBlog: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'blog',
-        key: 'id'
       }
     },
     idPost: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'post',
-        key: 'id'
       }
     }
   }, {
